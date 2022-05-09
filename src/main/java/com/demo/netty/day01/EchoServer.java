@@ -58,7 +58,7 @@ public class EchoServer {
             //这里，程序将会阻塞，直到channel关闭
             future.channel().closeFuture().sync();
         } finally {
-            //关闭EventLoopGroup，释放所有的资源
+            //关闭EventLoopGroup，释放所有的资源，并且关闭所有当前正在使用的Channel
             group.shutdownGracefully();
         }
     }
